@@ -27,6 +27,7 @@ PSComputerName              :
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
+ShareName                   :
 
 
 Status                      :
@@ -39,6 +40,7 @@ DeviceID                    : Microsoft-XPS-Document-Writer
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
+ShareName                   :
 
 
 Status                      :
@@ -48,6 +50,7 @@ DeviceID                    : Microsoft_Print_to_PDF
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
+ShareName                   :
 
 
 Status                      :
@@ -58,6 +61,7 @@ DeviceID                    : Fax
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
+ShareName                   :
 
 `;
 
@@ -70,21 +74,24 @@ it("returns list of available printers", async () => {
   const result: Printer[] = await getPrinters();
 
   expect(result).toStrictEqual([
-    { deviceId: "OneNote", name: "OneNote", paperSizes: [] },
+    { deviceId: "OneNote", name: "OneNote", paperSizes: [], shareName: "", },
     {
       deviceId: "Microsoft-XPS-Document-Writer",
       name: "Microsoft XPS Document Writer",
       paperSizes: [],
+      shareName: "",
     },
     {
       deviceId: "Microsoft_Print_to_PDF",
       name: "Microsoft Print to PDF",
       paperSizes: [],
+      shareName: "",
     },
     {
       deviceId: "Fax",
       name: "Fax",
       paperSizes: [],
+      shareName: "",
     },
   ]);
 });
@@ -120,6 +127,7 @@ it("returns list of available printers with custom properties", async () => {
   PaperSizesSupported         : {1, 1, 1, 1...}
   PortName                    : USB001
   PrinterPaperNames           : {A4, 144mm x 100mm, 2 x 4, 4 x 4...}
+  ShareName                   :
   
   `;
 
@@ -135,6 +143,7 @@ it("returns list of available printers with custom properties", async () => {
       deviceId: "Canon-Printer",
       name: "Canon Printer",
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
+      shareName: "",
     },
   ]);
 });
