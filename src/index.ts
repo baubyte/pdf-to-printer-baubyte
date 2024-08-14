@@ -7,4 +7,5 @@ export type Printer = {
   deviceId: string;
   name: string;
   paperSizes: string[];
+  shareName: string;
 };
