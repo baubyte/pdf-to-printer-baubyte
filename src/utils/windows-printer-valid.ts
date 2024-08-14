@@ -5,6 +5,7 @@ const properties: { [key: string]: keyof Printer } = {
   DeviceID: "deviceId",
   Name: "name",
   PrinterPaperNames: "paperSizes",
+  ShareName: "shareName",
 };
 
 export default function isValidPrinter(printer: string): {
@@ -15,6 +16,7 @@ export default function isValidPrinter(printer: string): {
     deviceId: "",
     name: "",
     paperSizes: [],
+    shareName:"",
   };
 
   printer.split(/\r?\n/).forEach((line) => {
