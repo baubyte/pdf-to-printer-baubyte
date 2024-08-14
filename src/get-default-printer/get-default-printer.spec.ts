@@ -91,6 +91,6 @@ it("gets the default printer with custom and repeated properties", async () => {
     deviceId: "Microsoft Print to PDF",
     name: "Microsoft Print to PDF",
     paperSizes: ["A4", "144mm x 100mm"],
-    shareName
+    shareName: "",
   });
 });
