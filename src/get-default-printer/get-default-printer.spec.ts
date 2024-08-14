@@ -19,7 +19,7 @@ DeviceID                    : Microsoft Print to PDF
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
-ShareName                   :
+ShareName                   : Microsoft Print to PDF
 `;
 
 it("gets the default printer", async () => {
@@ -34,7 +34,8 @@ it("gets the default printer", async () => {
     deviceId: "Microsoft Print to PDF",
     name: "Microsoft Print to PDF",
     paperSizes: [],
-    shareName:"",
+    shareName: "Microsoft Print to PDF",
+    shared: true,
   });
 });
 
@@ -92,5 +93,6 @@ it("gets the default printer with custom and repeated properties", async () => {
     name: "Microsoft Print to PDF",
     paperSizes: ["A4", "144mm x 100mm"],
     shareName: "",
+    shared: false,
   });
 });

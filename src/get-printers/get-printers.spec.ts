@@ -27,7 +27,7 @@ PSComputerName              :
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
-ShareName                   :
+ShareName                   : OneNote
 
 
 Status                      :
@@ -74,24 +74,33 @@ it("returns list of available printers", async () => {
   const result: Printer[] = await getPrinters();
 
   expect(result).toStrictEqual([
-    { deviceId: "OneNote", name: "OneNote", paperSizes: [], shareName: "", },
+    {
+      deviceId: "OneNote",
+      name: "OneNote",
+      paperSizes: [],
+      shareName: "OneNote",
+      shared: true,
+    },
     {
       deviceId: "Microsoft-XPS-Document-Writer",
       name: "Microsoft XPS Document Writer",
       paperSizes: [],
       shareName: "",
+      shared: false,
     },
     {
       deviceId: "Microsoft_Print_to_PDF",
       name: "Microsoft Print to PDF",
       paperSizes: [],
       shareName: "",
+      shared: false,
     },
     {
       deviceId: "Fax",
       name: "Fax",
       paperSizes: [],
       shareName: "",
+      shared: false,
     },
   ]);
 });
@@ -144,6 +153,7 @@ it("returns list of available printers with custom properties", async () => {
       name: "Canon Printer",
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
       shareName: "",
+      shared: false,
     },
   ]);
 });
