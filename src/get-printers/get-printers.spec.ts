@@ -166,7 +166,7 @@ it("returns list of available printers with custom properties", async () => {
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
       shareName: "",
       shared: false,
-      PrinterState: "3",
+      printerState: "3",
       status: 'idle',
     },
   ]);
