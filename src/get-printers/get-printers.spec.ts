@@ -102,7 +102,7 @@ it("returns list of available printers", async () => {
       shareName: "",
       shared: false,
       printerState: "1",
-      status: 'ununknown',
+      status: 'unknown',
     },
     {
       deviceId: "Fax",

@@ -6,6 +6,7 @@ const properties: { [key: string]: keyof Printer } = {
   Name: "name",
   PrinterPaperNames: "paperSizes",
   ShareName: "shareName",
+  PrinterState: "printerState",
 };
 
 export default function isValidPrinter(printer: string): {
