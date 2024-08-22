@@ -28,7 +28,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : OneNote
-PrinterState                : 3
+PrinterState                : 0
 
 
 Status                      :
@@ -42,7 +42,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
-PrinterState                : 3
+PrinterState                : 0
 
 
 Status                      :
@@ -64,7 +64,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
-PrinterState                : 3
+PrinterState                : 0
 
 `;
 
@@ -83,7 +83,7 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "OneNote",
       shared: true,
-      printerState: "3",
+      printerState: "0",
       status: 'idle',
     },
     {
@@ -92,7 +92,7 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
-      printerState: "3",
+      printerState: "0",
       status: 'idle',
     },
     {
@@ -110,7 +110,7 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
-      printerState: "3",
+      printerState: "0",
       status: 'idle',
     },
   ]);
@@ -148,7 +148,7 @@ it("returns list of available printers with custom properties", async () => {
   PortName                    : USB001
   PrinterPaperNames           : {A4, 144mm x 100mm, 2 x 4, 4 x 4...}
   ShareName                   :
-  PrinterState                : 3
+  PrinterState                : 0
   
   `;
 
@@ -166,7 +166,7 @@ it("returns list of available printers with custom properties", async () => {
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
       shareName: "",
       shared: false,
-      printerState: "3",
+      printerState: "0",
       status: 'idle',
     },
   ]);
