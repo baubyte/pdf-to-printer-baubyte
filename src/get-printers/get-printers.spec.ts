@@ -28,6 +28,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : OneNote
+PrinterState                : 3
 
 
 Status                      :
@@ -41,6 +42,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
+PrinterState                : 3
 
 
 Status                      :
@@ -51,7 +53,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
-
+PrinterState                : 1
 
 Status                      :
 Name                        : Fax
@@ -62,6 +64,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
+PrinterState                : 3
 
 `;
 
@@ -80,6 +83,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "OneNote",
       shared: true,
+      printerState: "3",
+      status: 'idle',
     },
     {
       deviceId: "Microsoft-XPS-Document-Writer",
@@ -87,6 +92,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
+      printerState: "3",
+      status: 'idle',
     },
     {
       deviceId: "Microsoft_Print_to_PDF",
@@ -94,6 +101,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
+      printerState: "1",
+      status: 'ununknown',
     },
     {
       deviceId: "Fax",
@@ -101,6 +110,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
+      printerState: "3",
+      status: 'idle',
     },
   ]);
 });
@@ -137,6 +148,7 @@ it("returns list of available printers with custom properties", async () => {
   PortName                    : USB001
   PrinterPaperNames           : {A4, 144mm x 100mm, 2 x 4, 4 x 4...}
   ShareName                   :
+  PrinterState                : 3
   
   `;
 
@@ -154,6 +166,8 @@ it("returns list of available printers with custom properties", async () => {
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
       shareName: "",
       shared: false,
+      PrinterState: "3",
+      status: 'idle',
     },
   ]);
 });

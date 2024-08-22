@@ -18,6 +18,8 @@ export default function isValidPrinter(printer: string): {
     paperSizes: [],
     shared: false,
     shareName: "",
+    printerState:"",
+    status:""
   };
 
   printer.split(/\r?\n/).forEach((line) => {
@@ -44,6 +46,7 @@ export default function isValidPrinter(printer: string): {
     printerData[key] = value;
   });
   printerData.shared = !!printerData.shareName;
+  printerData.status = printerData.printerState === '3' ? 'idle': 'unknown';
   const isValid = !!(printerData.deviceId && printerData.name);
 
   return {

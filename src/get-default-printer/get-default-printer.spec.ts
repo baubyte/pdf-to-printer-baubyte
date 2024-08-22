@@ -20,6 +20,7 @@ CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : Microsoft Print to PDF
+PrinterState                : 3
 `;
 
 it("gets the default printer", async () => {
@@ -36,6 +37,8 @@ it("gets the default printer", async () => {
     paperSizes: [],
     shareName: "Microsoft Print to PDF",
     shared: true,
+    printerState: '3',
+    status: 'idle',
   });
 });
 
@@ -78,6 +81,7 @@ it("gets the default printer with custom and repeated properties", async () => {
   PortName                    : USB001
   PrinterPaperNames           : {A4, 144mm x 100mm}
   ShareName                   :
+  PrinterState                : 1
   
   `;
 
@@ -94,5 +98,7 @@ it("gets the default printer with custom and repeated properties", async () => {
     paperSizes: ["A4", "144mm x 100mm"],
     shareName: "",
     shared: false,
+    printerState: '1',
+    status: 'unknown',
   });
 });
