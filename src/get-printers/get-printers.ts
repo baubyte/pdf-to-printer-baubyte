@@ -33,7 +33,7 @@ async function getPrinters(): Promise<Printer[]> {
       "-ExecutionPolicy",
       "Bypass",
       "-Command",
-      "Get-Printer | Select-Object Name,ShareName,PrinterStatus | ConvertTo-Json",
+      "Get-Printer | Select-Object Name,ShareName,PrinterStatus,PrinterPaperNames,PrinterState",
     ]);
     return stdoutHandler(stdout);
   } catch (error) {
