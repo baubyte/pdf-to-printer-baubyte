@@ -37,8 +37,8 @@ it("gets the default printer", async () => {
     paperSizes: [],
     shareName: "Microsoft Print to PDF",
     shared: true,
-    printerState: '0',
-    status: 'idle',
+    printerState: "0",
+    status: "idle",
   });
 });
 
@@ -98,7 +98,7 @@ it("gets the default printer with custom and repeated properties", async () => {
     paperSizes: ["A4", "144mm x 100mm"],
     shareName: "",
     shared: false,
-    printerState: '1',
-    status: 'unknown',
+    printerState: "1",
+    status: "unknown",
   });
 });

@@ -9,6 +9,6 @@ export type Printer = {
   paperSizes: string[];
   shared: boolean;
   shareName: string;
-  printerState:string;
-  status:string;
+  printerState: string;
+  status: string;
 };

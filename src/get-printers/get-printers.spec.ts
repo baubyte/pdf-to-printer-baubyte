@@ -84,7 +84,7 @@ it("returns list of available printers", async () => {
       shareName: "OneNote",
       shared: true,
       printerState: "0",
-      status: 'idle',
+      status: "idle",
     },
     {
       deviceId: "Microsoft-XPS-Document-Writer",
@@ -93,7 +93,7 @@ it("returns list of available printers", async () => {
       shareName: "",
       shared: false,
       printerState: "0",
-      status: 'idle',
+      status: "idle",
     },
     {
       deviceId: "Microsoft_Print_to_PDF",
@@ -102,7 +102,7 @@ it("returns list of available printers", async () => {
       shareName: "",
       shared: false,
       printerState: "1",
-      status: 'unknown',
+      status: "unknown",
     },
     {
       deviceId: "Fax",
@@ -111,7 +111,7 @@ it("returns list of available printers", async () => {
       shareName: "",
       shared: false,
       printerState: "0",
-      status: 'idle',
+      status: "idle",
     },
   ]);
 });
@@ -167,7 +167,7 @@ it("returns list of available printers with custom properties", async () => {
       shareName: "",
       shared: false,
       printerState: "0",
-      status: 'idle',
+      status: "idle",
     },
   ]);
 });
