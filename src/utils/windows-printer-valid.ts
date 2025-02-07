@@ -2,10 +2,11 @@ import { Printer } from "../index";
 
 // map windows-printer key to final printerData key
 const properties: { [key: string]: keyof Printer } = {
+  DeviceID: "deviceId",
   Name: "name",
+  PrinterPaperNames: "paperSizes",
   ShareName: "shareName",
-  PrinterStatus: "status",
-  Shared: "sharedStatus",
+  PrinterState: "printerState",
 };
 
 export default function isValidPrinter(printer: string): {
@@ -13,10 +14,13 @@ export default function isValidPrinter(printer: string): {
   printerData: Printer;
 } {
   const printerData: Printer = {
+    deviceId: "",
     name: "",
+    paperSizes: [],
+    shared: false,
     shareName: "",
+    printerState: "",
     status: "",
-    sharedStatus: "",
   };
 
   printer.split(/\r?\n/).forEach((line) => {
@@ -42,9 +46,9 @@ export default function isValidPrinter(printer: string): {
     // @ts-ignore
     printerData[key] = value;
   });
-  printerData.status = printerData.status === "Normal" ? "idle" : "unknown";
-  printerData.shared = printerData.sharedStatus === "True";
-  const isValid = !!(printerData.name);
+  printerData.shared = !!printerData.shareName;
+  printerData.status = printerData.printerState === "0" ? "idle" : "unknown";
+  const isValid = !!(printerData.deviceId && printerData.name);
 
   return {
     isValid,

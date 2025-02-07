@@ -9,15 +9,17 @@ async function getDefaultPrinter(): Promise<Printer | null> {
 
     const { stdout } = await execFileAsync("Powershell.exe", [
       "-Command",
-      "Get-Printer | Where-Object { $_.IsDefault -eq $true } | Format-List Name,ShareName,PrinterStatus,Shared",
+      `Get-CimInstance Win32_Printer -Property DeviceID,Name,PrinterPaperNames,ShareName,PrinterState -Filter Default=true`,
     ]);
 
     const printer = stdout.trim();
 
+    // If stdout is empty, there is no default printer
     if (!stdout) return null;
 
     const { isValid, printerData } = isValidPrinter(printer);
 
+    // DeviceID or Name not found
     if (!isValid) return null;
 
     return printerData;

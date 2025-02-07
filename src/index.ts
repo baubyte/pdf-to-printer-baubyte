@@ -4,9 +4,11 @@ export { default as getDefaultPrinter } from "./get-default-printer/get-default-
 export { PrintOptions } from "./print/print";
 
 export type Printer = {
+  deviceId: string;
   name: string;
-  shared?: boolean;
+  paperSizes: string[];
+  shared: boolean;
   shareName: string;
+  printerState: string;
   status: string;
-  sharedStatus: string;
 };

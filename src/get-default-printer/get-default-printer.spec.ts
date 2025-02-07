@@ -15,12 +15,12 @@ Caption                     :
 Description                 :
 InstallDate                 :
 Availability                :
+DeviceID                    : Microsoft Print to PDF
 CimClass                    : root/cimv2:Win32_Printer
 CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : Microsoft Print to PDF
-PrinterStatus               : Normal
-Shared                      : True
+PrinterState                : 0
 `;
 
 it("gets the default printer", async () => {
@@ -32,11 +32,13 @@ it("gets the default printer", async () => {
   const result: Printer | null = await getDefaultPrinter();
 
   expect(result).toStrictEqual({
+    deviceId: "Microsoft Print to PDF",
     name: "Microsoft Print to PDF",
+    paperSizes: [],
     shareName: "Microsoft Print to PDF",
     shared: true,
+    printerState: "0",
     status: "idle",
-    sharedStatus: "True",
   });
 });
 
@@ -74,12 +76,13 @@ it("gets the default printer with custom and repeated properties", async () => {
 
   Name                        : Microsoft Print to PDF
   Caption                     : Microsoft Print to PDF
+  DeviceID                    : Microsoft Print to PDF
   PaperSizesSupported         : {1, 1, 1, 1...}
   PortName                    : USB001
   PrinterPaperNames           : {A4, 144mm x 100mm}
   ShareName                   :
-  PrinterStatus               :
-  Shared                      : False
+  PrinterState                : 1
+  
   `;
 
   mockedExecAsync.mockResolvedValue({
@@ -90,10 +93,12 @@ it("gets the default printer with custom and repeated properties", async () => {
   const result: Printer | null = await getDefaultPrinter();
 
   expect(result).toStrictEqual({
+    deviceId: "Microsoft Print to PDF",
     name: "Microsoft Print to PDF",
+    paperSizes: ["A4", "144mm x 100mm"],
     shareName: "",
     shared: false,
+    printerState: "1",
     status: "unknown",
-    sharedStatus: "False",
   });
 });
