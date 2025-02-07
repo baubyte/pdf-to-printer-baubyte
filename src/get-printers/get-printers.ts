@@ -8,7 +8,7 @@ async function getPrinters(): Promise<Printer[]> {
     const printers: Printer[] = [];
 
     stdout
-      .split(/(\r?\n){2,}/)
+      .split(/\r?\n{2,}/)
       .map((printer) => printer.trim())
       .filter((printer) => !!printer)
       .forEach((printer) => {
@@ -26,8 +26,8 @@ async function getPrinters(): Promise<Printer[]> {
     throwIfUnsupportedOperatingSystem();
     const { stdout } = await execFileAsync("Powershell.exe", [
       "-Command",
-      `Get-CimInstance Win32_Printer -Property DeviceID,Name,PrinterPaperNames,ShareName,PrinterState`,
-    ]);
+      "Get-Printer | Select-Object Name,ShareName,PrinterStatus,Shared | Format-List",
+    ]); 
     return stdoutHandler(stdout);
   } catch (error) {
     throw error;
