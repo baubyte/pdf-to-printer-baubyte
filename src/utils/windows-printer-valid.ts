@@ -44,7 +44,7 @@ export default function isValidPrinter(printer: string): {
   });
   printerData.status = printerData.status === "Normal" ? "idle" : "unknown";
   printerData.shared = printerData.sharedStatus === "True";
-  const isValid = !!(printerData.name);
+  const isValid = !!printerData.name;
 
   return {
     isValid,

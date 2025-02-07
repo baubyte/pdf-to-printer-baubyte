@@ -27,7 +27,7 @@ async function getPrinters(): Promise<Printer[]> {
     const { stdout } = await execFileAsync("Powershell.exe", [
       "-Command",
       "Get-Printer | Select-Object Name,ShareName,PrinterStatus,Shared | Format-List",
-    ]); 
+    ]);
     return stdoutHandler(stdout);
   } catch (error) {
     throw error;
