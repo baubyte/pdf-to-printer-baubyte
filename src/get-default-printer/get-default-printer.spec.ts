@@ -21,6 +21,7 @@ CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : Microsoft Print to PDF
 PrinterState                : 0
+Shared                      : True
 `;
 
 it("gets the default printer", async () => {
@@ -82,7 +83,7 @@ it("gets the default printer with custom and repeated properties", async () => {
   PrinterPaperNames           : {A4, 144mm x 100mm}
   ShareName                   :
   PrinterState                : 1
-  
+  Shared                      : False
   `;
 
   mockedExecAsync.mockResolvedValue({

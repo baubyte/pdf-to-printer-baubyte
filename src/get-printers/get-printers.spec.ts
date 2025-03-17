@@ -29,6 +29,7 @@ CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   : OneNote
 PrinterState                : 0
+Shared                      : True
 
 
 Status                      :
@@ -43,6 +44,7 @@ CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
 PrinterState                : 0
+Shared                      : False
 
 
 Status                      :
@@ -54,6 +56,7 @@ CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
 PrinterState                : 1
+Shared                      : False
 
 Status                      :
 Name                        : Fax
@@ -65,6 +68,7 @@ CimInstanceProperties       : {Caption, Description, InstallDate, Name...}
 CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemProperties
 ShareName                   :
 PrinterState                : 0
+Shared                      : False
 
 `;
 

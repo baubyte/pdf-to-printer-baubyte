@@ -7,6 +7,7 @@ const properties: { [key: string]: keyof Printer } = {
   PrinterPaperNames: "paperSizes",
   ShareName: "shareName",
   PrinterState: "printerState",
+  Shared: "shared",
 };
 
 export default function isValidPrinter(printer: string): {
@@ -40,13 +41,15 @@ export default function isValidPrinter(printer: string): {
     }
 
     const key = properties[label];
-
     if (key === undefined) return;
-
+    if (key === "shared") {
+      // @ts-ignore
+      printerData[key] = value === "True";
+      return;
+    }
     // @ts-ignore
     printerData[key] = value;
   });
-  printerData.shared = !!printerData.shareName;
   printerData.status = printerData.printerState === "0" ? "idle" : "unknown";
   const isValid = !!(printerData.deviceId && printerData.name);
 
