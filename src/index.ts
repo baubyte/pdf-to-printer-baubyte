@@ -10,5 +10,5 @@ export type Printer = {
   shared: boolean;
   shareName: string;
   printerState: string;
-  status: string;
+  serverName: string;
 };
