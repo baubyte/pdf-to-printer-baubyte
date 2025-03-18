@@ -8,6 +8,7 @@ const properties: { [key: string]: keyof Printer } = {
   ShareName: "shareName",
   PrinterState: "printerState",
   Shared: "shared",
+  ServerName: "serverName",
 };
 
 export default function isValidPrinter(printer: string): {
@@ -21,7 +22,7 @@ export default function isValidPrinter(printer: string): {
     shared: false,
     shareName: "",
     printerState: "",
-    status: "",
+    serverName: "",
   };
 
   printer.split(/\r?\n/).forEach((line) => {
@@ -41,7 +42,9 @@ export default function isValidPrinter(printer: string): {
     }
 
     const key = properties[label];
-    if (key === undefined) return;
+    if (key === undefined) {
+      return
+    };
     if (key === "shared") {
       // @ts-ignore
       printerData[key] = value === "True";
@@ -50,7 +53,7 @@ export default function isValidPrinter(printer: string): {
     // @ts-ignore
     printerData[key] = value;
   });
-  printerData.status = printerData.printerState === "0" ? "idle" : "unknown";
+  printerData.printerState = printerData.printerState === "0" ? "idle" : "unknown";
   const isValid = !!(printerData.deviceId && printerData.name);
 
   return {
