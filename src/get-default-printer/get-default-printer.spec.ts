@@ -22,6 +22,7 @@ CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemPrope
 ShareName                   : Microsoft Print to PDF
 PrinterState                : 0
 Shared                      : True
+ServerName                  : \\\\DESKTOP-PC
 `;
 
 it("gets the default printer", async () => {
@@ -38,8 +39,8 @@ it("gets the default printer", async () => {
     paperSizes: [],
     shareName: "Microsoft Print to PDF",
     shared: true,
-    printerState: "0",
-    status: "idle",
+    printerState: "idle",
+    serverName: "\\\\DESKTOP-PC",
   });
 });
 
@@ -84,6 +85,7 @@ it("gets the default printer with custom and repeated properties", async () => {
   ShareName                   :
   PrinterState                : 1
   Shared                      : False
+  ServerName                  :
   `;
 
   mockedExecAsync.mockResolvedValue({
@@ -99,7 +101,7 @@ it("gets the default printer with custom and repeated properties", async () => {
     paperSizes: ["A4", "144mm x 100mm"],
     shareName: "",
     shared: false,
-    printerState: "1",
-    status: "unknown",
+    printerState: "unknown",
+    serverName: "",
   });
 });

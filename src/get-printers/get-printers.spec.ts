@@ -30,6 +30,7 @@ CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemPrope
 ShareName                   : OneNote
 PrinterState                : 0
 Shared                      : True
+ServerName                  : \\DESKTOP-PC
 
 
 Status                      :
@@ -45,6 +46,7 @@ CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemPrope
 ShareName                   :
 PrinterState                : 0
 Shared                      : False
+ServerName                  :
 
 
 Status                      :
@@ -57,6 +59,7 @@ CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemPrope
 ShareName                   :
 PrinterState                : 1
 Shared                      : False
+ServerName                  :
 
 Status                      :
 Name                        : Fax
@@ -69,6 +72,7 @@ CimSystemProperties         : Microsoft.Management.Infrastructure.CimSystemPrope
 ShareName                   :
 PrinterState                : 0
 Shared                      : False
+ServerName                  :
 
 `;
 
@@ -87,8 +91,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "OneNote",
       shared: true,
-      printerState: "0",
-      status: "idle",
+      printerState: "idle",
+      serverName: "\\DESKTOP-PC",
     },
     {
       deviceId: "Microsoft-XPS-Document-Writer",
@@ -96,8 +100,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
-      printerState: "0",
-      status: "idle",
+      printerState: "idle",
+      serverName: "",
     },
     {
       deviceId: "Microsoft_Print_to_PDF",
@@ -105,8 +109,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
-      printerState: "1",
-      status: "unknown",
+      printerState: "unknown",
+      serverName: "",
     },
     {
       deviceId: "Fax",
@@ -114,8 +118,8 @@ it("returns list of available printers", async () => {
       paperSizes: [],
       shareName: "",
       shared: false,
-      printerState: "0",
-      status: "idle",
+      printerState: "idle",
+      serverName: "",
     },
   ]);
 });
@@ -153,7 +157,7 @@ it("returns list of available printers with custom properties", async () => {
   PrinterPaperNames           : {A4, 144mm x 100mm, 2 x 4, 4 x 4...}
   ShareName                   :
   PrinterState                : 0
-  
+  ServerName                  :
   `;
 
   mockedExecAsync.mockResolvedValue({
@@ -170,8 +174,8 @@ it("returns list of available printers with custom properties", async () => {
       paperSizes: ["A4", "144mm x 100mm", "2 x 4", "4 x 4"],
       shareName: "",
       shared: false,
-      printerState: "0",
-      status: "idle",
+      printerState: "idle",
+      serverName: "",
     },
   ]);
 });
